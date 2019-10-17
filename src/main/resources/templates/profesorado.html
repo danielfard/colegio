@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/base::head('Profesorado')">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body th:replace="layout/base::header()">
+
+<h1>Busqueda de profesores</h1>
+<div>
+<a>Nombre</a><input type="text" name="buscar docente">
+<a>Cedula</a><input type="text" name="buscar docente">
+</div>
+
+<div>
+<button type="button" class="btn btn-light">Buscar</button>
+<button type="button" class="btn btn-light">Limpiar</button>
+</div>
+
+<div>
+<button type="button" class="btn btn-light">Nuevo Profesor</button><button type="button" class="btn btn-light">Datos Personales</button><button type="button" class="btn btn-light">Clases</button><button type="button" class="btn btn-light">Eliminar Profesor</button>
+</div>
+<h3>Resultados de la busqueda</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Cedula</th>
+      <th scope="col">Correo</th>
+      <th scope="col">Telefono</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<footer th:replace="layout/base::footer()"></footer>
+  </body>
+</html>

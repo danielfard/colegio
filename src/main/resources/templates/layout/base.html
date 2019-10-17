@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head(nombre)">
+	
+	<link rel="stylesheet" th:href="@{/css/} + ${nombre}+.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    
+	<title th:text="${nombre}"></title>
+	
+</head>
+<body>
+<header th:fragment="header()">
+<style th:inline="text">
+
+html body {
+background-image: url("fondo.jpg");
+background-size: cover;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+background-color: black;
+
+}
+
+.container{
+height: 100%;
+align-content: center;
+
+}
+
+.card{
+height: 370px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+
+.remember{
+color: color:#f2f2f2;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+
+#nombre a{
+	float:left;
+	margin-rigth:10px;
+	font-family: 'Numans', sans-serif;
+	color:black;
+}
+
+#opciones li a{
+	color:color:#f2f2f2;
+}
+
+#opciones li a:hover{
+	color:white;
+}
+
+.login_btn:hover{
+color: white;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+#navbarSupportedContent{
+	background-color: rgba(0, 0, 0, .5);
+	padding:10px;
+}
+
+#navbarSupportedContent > a{
+	color:white;
+	font-family: "times new roman";
+	font-size:22px;
+}
+
+#opciones li a{
+	font-family: "times new roman";
+	font-size:17px;
+	color:#f2f2f2;
+}
+.links a{
+margin-left: 4px;
+ 
+</style>
+
+<nav id="contenido">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+         <a href="#">Gardner High School</a>
+         
+          <ul class="navbar-nav ml-auto" id="opciones">          	
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Inicio<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="prof">Profesores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Clases</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Mantenimiento</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </nav>
+</header>
+
+</body>
+
+</html>
