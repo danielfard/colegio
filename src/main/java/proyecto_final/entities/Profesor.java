@@ -15,6 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Profesores")
 public class Profesor implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -37,20 +38,33 @@ public class Profesor implements Serializable {
 	private String apellido_2;
 	
 	@Column(name = "cedula", nullable = false)
-	private long cedula;
+	private Long cedula;
 	
 	@Column(name = "telefono", nullable = false)
-	private long telefono;
+	private Long telefono;
 	
 	@Column(name = "email", nullable = false)
 	private String email;
 	
-	@Column(name = "Titulacion", nullable = false)
+	@Column(name = "titulacion", nullable = false)
 	private String titulacion;
 	
 	@OneToMany(mappedBy = "profesor")
 	private Set<Clase> clases;
 
+	public Profesor(Long id, String nombre, String apellido_1,String apellido_2, Long cedula,Long telefono,String email, String titulacion) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido_1 = apellido_1;
+		this.apellido_2 = apellido_2;
+		this.cedula = cedula;
+		this.telefono = telefono;
+		this.email = email;
+		this.titulacion = titulacion;
+	}
+
+	
 	public Profesor() {
 		super();
 		// TODO Auto-generated constructor stub

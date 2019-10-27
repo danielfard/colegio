@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import proyecto_final.entities.Profesor;
 @Repository
 public interface ProfesorRepository extends JpaRepository<Profesor, Long> {
-	Profesor findByNombre(String nombre);
+	
 }

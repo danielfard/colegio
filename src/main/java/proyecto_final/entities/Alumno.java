@@ -72,6 +72,21 @@ public class Alumno implements Serializable {
 	@JoinTable(name="clase_alumno",joinColumns = @JoinColumn(name="alumno_id",referencedColumnName="id"),inverseJoinColumns =@JoinColumn(name= "clase_id",referencedColumnName="id"))
 	private Set<Clase> clases;
 
+	public Alumno(Long id,String nombre,String apellido_1,String apellido_2,Long cedula,Long telefono,String email,Long repetidor) {
+		super();
+		// TODO Auto-generated constructor stub
+		this.id=id;
+		this.apellido_1=apellido_1;
+		this.apellido_2=apellido_2;
+		this.cedula=cedula;
+		this.telefono=telefono;
+		this.email=email;
+		this.repetidor=repetidor;
+		
+	}
+	
+	
+	
 	public Long getId() {
 		return id;
 	}
