@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AlumnadoController {
-	@GetMapping(path= {"/","/alumnado"})
-	public String profesorado() {
+	@GetMapping("/alumnado")
+	public String alumnado() {
 		return "alumnado";
 	}
 }
