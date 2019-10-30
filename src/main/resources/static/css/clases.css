@@ -189,7 +189,6 @@ border: 0px solid #000000;
 	font-family: times new roman;
 }
 
-
 #buscar a{
 	color:white;
 	font-size:25px;
@@ -199,18 +198,3 @@ border: 0px solid #000000;
 	margin:10px;
 }
 
-#contenedor form fieldset div a{
-	color: white;
-	margin-rigth:10px;
-}
-
-.tabla h3{
-	color:white;
-}
-
-#responsable{
-	width:50%;
-}
-#adminis {
-	width:50%;
-}

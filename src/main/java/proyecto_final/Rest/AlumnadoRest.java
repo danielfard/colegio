@@ -39,7 +39,7 @@ public class AlumnadoRest {
 	public Alumno getEstudiante(@PathVariable Long id) {
 		Optional<Alumno> alumno = alumRepository.findById(id);
 		if(!alumno.isPresent()) {
-			throw new EntityNotFoundException("No se encontro el profesor con id "+id);
+			throw new EntityNotFoundException("No se encontro el alumno con id "+id);
 		}
 				
 		return alumno.get();

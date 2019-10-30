@@ -3,6 +3,7 @@ $(function() {
     agregarUsuario();
     editarUsuario();
     eliminar();
+    ActivarCampo();
 });
 
 function listar() {
@@ -22,7 +23,7 @@ function listar() {
     			            "<td>" + e.telefono + "</td>" +
     			            "<td>" + e.email + "</td>" +
     			            "<td>" + e.titulacion + "</td>" +
-    			            "<td><button type='button' class='btn btn-primary'>Editar</button>" + "<button type='button' class='btn btn-danger'>Eliminar</button></td>" +
+    			            "<td><button type='button' class='btn btn-primary'>Editar</button>" + "<button type='button' onclick='ActivarCampo();' class='btn btn-light'>Clases</button>"+ "<button type='button' class='btn btn-danger'>Eliminar</button></td>" +
     			            "</tr>");
     			    });
     			
@@ -32,6 +33,45 @@ function listar() {
    
 }
 
+var clic=1;
+function ActivarCampoOtroTema(){
+	var contenedor = document.getElementById("OtroTema");
+	 if(clic==1){
+
+		 contenedor.style.display = "block";
+
+		   clic = clic + 1;
+
+		   } else{
+
+			   contenedor.style.display = "none";    
+
+		    clic = 1;
+
+		   }   
+	
+	return true;
+	}
+
+var click=1;
+function ActivarCampo(){
+	var contenedor = document.getElementById("horario");
+	 if(click==1){
+
+		 contenedor.style.display = "none";
+
+		   click = click + 1;
+
+		   } else{
+
+			   contenedor.style.display = "block";    
+
+		    click = 1;
+
+		   }   
+	
+	return true;
+}
 
 function agregarUsuario() {
     $('form input[type=button]').on('click', function(e) {

@@ -71,22 +71,33 @@ public class Alumno implements Serializable {
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(name="clase_alumno",joinColumns = @JoinColumn(name="alumno_id",referencedColumnName="id"),inverseJoinColumns =@JoinColumn(name= "clase_id",referencedColumnName="id"))
 	private Set<Clase> clases;
+	
+	
+	public Alumno(Long id, String nombre, String apellido_1, String apellido_2, long cedula, long telefono,
+			String email, Long repetidor, Date fecha_alta, Date fecha_baja, String observaciones) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido_1 = apellido_1;
+		this.apellido_2 = apellido_2;
+		this.cedula = cedula;
+		this.telefono = telefono;
+		this.email = email;
+		this.repetidor = repetidor;
+		this.fecha_alta = fecha_alta;
+		this.fecha_baja = fecha_baja;
+		this.observaciones = observaciones;
+	}
 
-	public Alumno(Long id,String nombre,String apellido_1,String apellido_2,Long cedula,Long telefono,String email,Long repetidor) {
+
+
+	public Alumno() {
 		super();
 		// TODO Auto-generated constructor stub
-		this.id=id;
-		this.apellido_1=apellido_1;
-		this.apellido_2=apellido_2;
-		this.cedula=cedula;
-		this.telefono=telefono;
-		this.email=email;
-		this.repetidor=repetidor;
-		
 	}
-	
-	
-	
+
+
+
 	public Long getId() {
 		return id;
 	}
@@ -199,10 +210,7 @@ public class Alumno implements Serializable {
 		this.clases = clases;
 	}
 
-	public Alumno() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
 	
 	
 	

@@ -1,6 +1,6 @@
 $(function() {
 	listar(); 
-
+	ActivarCampoOtroTema();
 });
 
 function listar() {
@@ -19,7 +19,7 @@ function listar() {
     			            "<td>" + e.acudiente.nombre + "</td>" +
     			            "<td>" + e.fecha_alta + "</td>" +
     			            "<td>" + e.fecha_baja + "</td>" +
-    			            "<td><button type='button' class='btn btn-primary'>Editar</button>" + "<button type='button' class='btn btn-danger'>Eliminar</button></td>" +
+    			            "<td><button type='button' class='btn btn-primary'>Editar</button>"+"<button type='button' class='btn btn-light'>clases</button>" + "<button type='button' class='btn btn-danger'>Eliminar</button></td>" +
     			            "</tr>");
     			    });
     			
@@ -29,4 +29,22 @@ function listar() {
    
 }
 
+var clic=1;
+function ActivarCampoOtroTema(){
+	var contenedor = document.getElementById("OtroTema");
+	 if(clic==1){
 
+		 contenedor.style.display = "none";
+
+		   clic = clic + 1;
+
+		   } else{
+
+			   contenedor.style.display = "block";    
+
+		    clic = 1;
+
+		   }   
+	
+	return true;
+	}
