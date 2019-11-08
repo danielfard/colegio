@@ -83,7 +83,7 @@
 					  <a>observaciones</a><input type="text" id="observaciones" name="trip-start">
 					  </div>
 					  <div>
-					  	<button type="button" class="btn btn-success" id="agregar">Agregar</button>
+					  	<button type="button" class="btn btn-success" id="agregar" onclick="agregarAlumnado()">Agregar</button>
 					  </div>
 		  			</div>
 					  
@@ -208,6 +208,8 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- El servicio se debe poner antes de todo para que se puedan llamar las funciones en los otros .js -->
+<script type="text/javascript" src="js/alumnadoService.js"></script>
 <script type="text/javascript" src="js/alumnadologica.js"></script>
   </body>
 </html>

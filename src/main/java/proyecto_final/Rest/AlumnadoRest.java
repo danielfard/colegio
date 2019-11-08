@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,9 +51,21 @@ public class AlumnadoRest {
 		return alumRepository.save(alumno);
 	}
 	@DeleteMapping("/alumnado/{id}")
-	public void eliminar(@PathVariable Long id) {
-		Alumno alum = alumRepository.getOne(id);
-		alumRepository.delete(alum);
+	public ResponseEntity<Alumno> eliminar(@PathVariable Long id) {
+		// Get a Order by id
+		Optional<Alumno> a = alumRepository.findById(id);
+		
+		// Evaluate if exists
+		if (!a.isPresent()) {
+			// Return 404
+			return ResponseEntity.notFound().build();
+		}
+		
+		// Remove the Order from database
+		alumRepository.delete(a.get());
+		
+		return ResponseEntity.noContent().build();
+
 		
 	}
 }
