@@ -38,7 +38,7 @@ public class Clase implements Serializable {
 	private Asignatura asignatura;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="id_profesor")
+	@JoinColumn(name="id")
 	private Profesor profesor;
 	
 	@ManyToMany(mappedBy = "clases")
