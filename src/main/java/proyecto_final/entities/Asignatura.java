@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "Asignaturas")
 public class Asignatura implements Serializable {
@@ -30,9 +32,32 @@ public class Asignatura implements Serializable {
 	private Curso curso;
 	
 	@OneToMany(mappedBy = "asignatura")
+	@JsonIgnore
 	private Set<Clase> clases;
-	
-	
+
+	public String getNombre_asignatura() {
+		return nombre_asignatura;
+	}
+
+	public void setNombre_asignatura(String nombre_asignatura) {
+		this.nombre_asignatura = nombre_asignatura;
+	}
+
+	public Curso getCurso() {
+		return curso;
+	}
+
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+
+	public Set<Clase> getClases() {
+		return clases;
+	}
+
+	public void setClases(Set<Clase> clases) {
+		this.clases = clases;
+	}
 	
 	
 	

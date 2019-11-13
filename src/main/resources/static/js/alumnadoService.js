@@ -1,6 +1,6 @@
 /** Alumnado obj*/
 class Alumnado {
-	constructor(nombre, apellido_1, apellido_2, cedula, telefono, email, repetidor, fecha_alta, fecha_baja, observaciones){
+	constructor(nombre, apellido_1, apellido_2, cedula, telefono, email, repetidor, /*fecha_alta, fecha_baja,*/ observaciones){
 		this.nombre = nombre;
 		this.apellido_1 = apellido_1;
 		this.apellido_2 = apellido_2;
@@ -8,8 +8,8 @@ class Alumnado {
 		this.telefono = telefono;
 		this.email = email;
 		this.repetidor = repetidor;
-		this.fecha_alta = fecha_alta;
-		this.fecha_baja = fecha_baja;
+		//this.fecha_alta = fecha_alta;
+		//this.fecha_baja = fecha_baja;
 		this.observaciones = observaciones;
 	}
 }

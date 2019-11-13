@@ -1,6 +1,7 @@
 package proyecto_final.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,12 +15,19 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "Clases")
 public class Clase implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,12 +42,12 @@ public class Clase implements Serializable {
 	private Profesor profesor;
 	
 	@ManyToMany(mappedBy = "clases")
-	private Set<Alumno> alumnos;
+	private Set<Alumno> alumnos = new HashSet<>();;
 	
 	
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(name="clase_horasemanal",joinColumns = @JoinColumn(name="clase_id",referencedColumnName="id"),inverseJoinColumns =@JoinColumn(name= "horasemanal_id",referencedColumnName="id"))
-	private Set<Hora_semanal> horas_semanales;
+	private Set<Hora_semanal> horas_semanales = new HashSet<>();;
 
 
 	public Long getId_clase() {

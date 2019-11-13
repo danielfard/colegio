@@ -15,6 +15,7 @@ function agregarAlumnado() {
 	var telefono = $("#telefono_est").val();
 	var email = $("#email_est").val();
 	//var curso = $("#curso_est").val();
+	var observaciones = $("#observaciones").val();
 	
 	// Seria crear esto mismo pero con los datos del formulario
 	var newAlumnado = new Alumnado (nombre,
@@ -24,7 +25,7 @@ function agregarAlumnado() {
 									telefono,
 									email,
 									0,
-									"Observaciones")
+									observaciones)
 	
 	// Se envia a la api
 	setAlumnado(newAlumnado, (data) => {
@@ -51,7 +52,7 @@ function listar() {
 	            "<td>" + e.nombre+ e.apellido_1 +" "+e.apellido_2 + "</td>" +
 	            "<td>" + e.curso + "</td>" +
 	            //"<td>" + e.acudiente.nombre + "</td>" +
-	            "<td><button type='button' class='btn btn-primary'>Editar</button>"+"<button type='button' class='btn btn-light'>clases</button>" + "<button type='button' class='btn btn-danger' onclick='eliminarAlumnado("+e.id+")'>Eliminar</button></td>" +
+	            "<td><button type='button' class='btn btn-primary'>Editar</button>"+"<button type='button' class='btn btn-light' onclick='ClasesAlumnado("+e.id+")'>clases</button>" + "<button type='button' class='btn btn-danger' onclick='eliminarAlumnado("+e.id+")'>Eliminar</button></td>" +
 	            "</tr>");
 	    });
 		
@@ -68,7 +69,7 @@ function addToList(e) {
             "<td>" + e.nombre+ e.apellido_1 +" "+e.apellido_2 + "</td>" +
             "<td>" + e.curso + "</td>" +
             //"<td>" + e.acudiente.nombre + "</td>" +
-            "<td><button type='button' class='btn btn-primary'>Editar</button>"+"<button type='button' class='btn btn-light' onclick='ClasesAlumnado("+e.id+")>clases</button>" + "<button type='button' class='btn btn-danger' onclick='eliminarAlumnado("+e.id+")'>Eliminar</button></td>" +
+            "<td><button type='button' class='btn btn-primary'>Editar</button>"+"<button type='button' class='btn btn-light' onclick='ClasesAlumnado("+e.id+")'>clases</button>" + "<button type='button' class='btn btn-danger' onclick='eliminarAlumnado("+e.id+")'>Eliminar</button></td>" +
             "</tr>");
 }
 

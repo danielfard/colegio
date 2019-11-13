@@ -3,6 +3,8 @@ package proyecto_final.entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -20,9 +22,16 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "Alumnos")
 public class Alumno implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -57,10 +66,14 @@ public class Alumno implements Serializable {
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_acudiente")
+	@JsonIgnore
 	private Acudiente acudiente;
 	
-	@ManyToMany(cascade = CascadeType.PERSIST)
-	@JoinTable(name="clase_alumno",joinColumns = @JoinColumn(name="alumno_id",referencedColumnName="id"),inverseJoinColumns =@JoinColumn(name= "clase_id",referencedColumnName="id"))
+	@ManyToMany(cascade = CascadeType.DETACH)
+	@JoinTable(name="clase_alumno",
+				joinColumns = @JoinColumn(name="alumno_id",referencedColumnName="id"),
+				inverseJoinColumns = @JoinColumn(name= "clase_id",referencedColumnName="id"))
+	@JsonIgnore
 	private Set<Clase> clases;
 	
 	
@@ -78,7 +91,12 @@ public class Alumno implements Serializable {
 		
 		this.observaciones = observaciones;
 	}
-
+	
+	public Alumno(Clase...clases) {
+		
+		this.clases = Stream.of(clases).collect(Collectors.toSet());
+		this.clases.forEach(x -> x.getAlumnos().add(this));
+	}
 
 
 	public Alumno() {
