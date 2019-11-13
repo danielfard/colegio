@@ -46,16 +46,7 @@ public class Alumno implements Serializable {
 	private String email;
 	
 	@Column(name = "repetidor", nullable = false)
-	private Long repetidor;
-	
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "fecha_alta", nullable = false)
-	private Date fecha_alta;
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "fecha_baja", nullable = false)
-	private Date fecha_baja;
+	private boolean repetidor;
 	
 	@Column(name = "observaciones", nullable = false)
 	private String observaciones;
@@ -74,7 +65,7 @@ public class Alumno implements Serializable {
 	
 	
 	public Alumno(Long id, String nombre, String apellido_1, String apellido_2, long cedula, long telefono,
-			String email, Long repetidor, Date fecha_alta, Date fecha_baja, String observaciones) {
+			String email, boolean repetidor, Date fecha_alta, Date fecha_baja, String observaciones) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -84,8 +75,7 @@ public class Alumno implements Serializable {
 		this.telefono = telefono;
 		this.email = email;
 		this.repetidor = repetidor;
-		this.fecha_alta = fecha_alta;
-		this.fecha_baja = fecha_baja;
+		
 		this.observaciones = observaciones;
 	}
 
@@ -154,28 +144,12 @@ public class Alumno implements Serializable {
 		this.email = email;
 	}
 
-	public Long getRepetidor() {
+	public boolean getRepetidor() {
 		return repetidor;
 	}
 
-	public void setRepetidor(Long repetidor) {
+	public void setRepetidor(boolean repetidor) {
 		this.repetidor = repetidor;
-	}
-
-	public Date getFecha_alta() {
-		return fecha_alta;
-	}
-
-	public void setFecha_alta(Date fecha_alta) {
-		this.fecha_alta = fecha_alta;
-	}
-
-	public Date getFecha_baja() {
-		return fecha_baja;
-	}
-
-	public void setFecha_baja(Date fecha_baja) {
-		this.fecha_baja = fecha_baja;
 	}
 
 	public String getObservaciones() {

@@ -7,16 +7,23 @@ $(function() {
 
 function agregarAlumnado() {
 	/* Crear alumnado */
+	
+	var nombre = $("#nombre_est").val();
+	var apellido1 = $("#apellido_1_est").val();
+	var apellido2 = $("#apellido_2_est").val();
+	var cedula = $("#cedula_est").val();
+	var telefono = $("#telefono_est").val();
+	var email = $("#email_est").val();
+	//var curso = $("#curso_est").val();
+	
 	// Seria crear esto mismo pero con los datos del formulario
-	var newAlumnado = new Alumnado ("Nombre",
-									"Apellido",
-									"Apellido",
-									123456,
-									3124321243,
-									"Email",
-									2,
-									new Date(2011,12,13),
-									new Date(2011,11,11),
+	var newAlumnado = new Alumnado (nombre,
+									apellido1,
+									apellido2,
+									cedula,
+									telefono,
+									email,
+									0,
 									"Observaciones")
 	
 	// Se envia a la api
@@ -44,8 +51,6 @@ function listar() {
 	            "<td>" + e.nombre+ e.apellido_1 +" "+e.apellido_2 + "</td>" +
 	            "<td>" + e.curso + "</td>" +
 	            //"<td>" + e.acudiente.nombre + "</td>" +
-	            "<td>" + e.fecha_alta + "</td>" +
-	            "<td>" + e.fecha_baja + "</td>" +
 	            "<td><button type='button' class='btn btn-primary'>Editar</button>"+"<button type='button' class='btn btn-light'>clases</button>" + "<button type='button' class='btn btn-danger' onclick='eliminarAlumnado("+e.id+")'>Eliminar</button></td>" +
 	            "</tr>");
 	    });
@@ -63,10 +68,14 @@ function addToList(e) {
             "<td>" + e.nombre+ e.apellido_1 +" "+e.apellido_2 + "</td>" +
             "<td>" + e.curso + "</td>" +
             //"<td>" + e.acudiente.nombre + "</td>" +
-            "<td>" + e.fecha_alta + "</td>" +
-            "<td>" + e.fecha_baja + "</td>" +
-            "<td><button type='button' class='btn btn-primary'>Editar</button>"+"<button type='button' class='btn btn-light'>clases</button>" + "<button type='button' class='btn btn-danger' onclick='eliminarAlumnado("+e.id+")'>Eliminar</button></td>" +
+            "<td><button type='button' class='btn btn-primary'>Editar</button>"+"<button type='button' class='btn btn-light' onclick='ClasesAlumnado("+e.id+")>clases</button>" + "<button type='button' class='btn btn-danger' onclick='eliminarAlumnado("+e.id+")'>Eliminar</button></td>" +
             "</tr>");
+}
+
+function ClasesAlumnado(id){
+	getAlumnado(id, (result) => {
+		console.log(result.clases)
+	})
 }
 
 var clic=1;
