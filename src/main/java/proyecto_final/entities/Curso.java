@@ -1,6 +1,7 @@
 package proyecto_final.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -11,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "Cursos")
@@ -26,11 +29,11 @@ public class Curso implements Serializable {
 	private String etapa;
 	
 	@OneToMany(mappedBy = "curso")
-	private Set<Asignatura> asignaturas;
+	private Set<Asignatura> asignaturas = new HashSet<Asignatura>();
 	
 	
 	@OneToMany(mappedBy = "curso")
-	private Set<Alumno> alumnos;
+	private Set<Alumno> alumnos = new HashSet<Alumno>();
 
 
 	public Long getId_curso() {

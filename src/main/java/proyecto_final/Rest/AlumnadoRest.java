@@ -46,10 +46,34 @@ public class AlumnadoRest {
 		return alumno.get();
 	}
 
-	@PutMapping("/alumnado")
-	public Alumno updateEstudiante(@RequestBody Alumno alumno) {
-		return alumRepository.save(alumno);
+	@PutMapping("/alumnado/{id}")
+	public ResponseEntity<Alumno> updateProduct(@PathVariable Long id, @RequestBody Alumno alumn) {
+		// Get a product by id
+		Optional<Alumno> a = alumRepository.findById(id);
+		
+		// Evaluate if exists
+		if (!a.isPresent()) {
+			// Return 404
+			return ResponseEntity.notFound().build();
+		}
+		
+		a.get().setAcudiente(alumn.getAcudiente());
+		a.get().setApellido_1(alumn.getApellido_1());
+		a.get().setApellido_2(alumn.getApellido_2());
+		a.get().setCedula(alumn.getCedula());
+		a.get().setClases(alumn.getClases());
+		a.get().setCurso(alumn.getCurso());
+		a.get().setEmail(alumn.getEmail());
+		a.get().setNombre(alumn.getNombre());
+		a.get().setObservaciones(alumn.getObservaciones());
+		a.get().setRepetidor(alumn.getRepetidor());
+		a.get().setTelefono(alumn.getTelefono());
+		
+		return ResponseEntity.ok(alumRepository.save(a.get()));
 	}
+
+
+	
 	@DeleteMapping("/alumnado/{id}")
 	public ResponseEntity<Alumno> eliminar(@PathVariable Long id) {
 		// Get a Order by id

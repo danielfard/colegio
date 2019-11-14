@@ -16,6 +16,7 @@ import proyecto_final.repositories.AcudienteRepository;
 import proyecto_final.repositories.AlumnoRepository;
 import proyecto_final.repositories.AsignaturaRepository;
 import proyecto_final.repositories.ClaseRepository;
+import proyecto_final.repositories.CursoRepository;
 import proyecto_final.repositories.ProfesorRepository;
 
 @SpringBootApplication
@@ -31,6 +32,8 @@ public class ProyectoFinalApplication {
 	private AsignaturaRepository asigRepo;
 	@Autowired
 	private ProfesorRepository profeRepo;
+	@Autowired
+	private CursoRepository cursoRepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoFinalApplication.class, args);
@@ -78,18 +81,17 @@ public class ProyectoFinalApplication {
 	    acudRepo.save(ac);
 	    
 	    // no hay repositorio para curso
-	    /*Curso curso = new Curso();
+	    Curso curso = new Curso();
 	    curso.setEtapa("GRado 11");
 	    curso.setNivel((long) 10);
-	    */
+	    cursoRepo.save(curso);
 	    
 	    Alumno a = new Alumno(c);
 	    a.setAcudiente(ac);
 	    a.setApellido_1("Castro");
 	    a.setApellido_2("Arias");
 	    a.setCedula(1234123);
-	    //a.setClases(c);
-	    //a.setCurso(curso);
+	    a.setCurso(curso);
 	    a.setEmail("blabla@bla.com");
 	    a.setNombre("Juancho");
 	    a.setObservaciones("Se la come entera el prro");

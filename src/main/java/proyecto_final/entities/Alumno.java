@@ -62,6 +62,7 @@ public class Alumno implements Serializable {
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_curso")
+	@JsonIgnore
 	private Curso curso;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
